@@ -1,0 +1,31 @@
+<p>
+  LAZY Isolate works!
+</p>
+<button routerLink="/">Back</button>
+<button routerLink="/lazy-isolate/except-should">SHOULD go to isolate except should page testing except</button>
+<button routerLink="/lazy-isolate/except-should-not">SHOULD NOT go to isolate except should page testing except</button>
+<button routerLink="/lazy-isolate/only-should">SHOULD go to isolate except should page testing only</button>
+<button routerLink="/lazy-isolate/only-should-not">SHOULD NOT go to only-should-not except should page testing only</button>
+
+<div style="background-color: green">
+  Should see something
+  <ng-template [ngxPermissionsOnly]="['GUEST']">
+    <div> LAZY I will see it only GUEST</div>
+  </ng-template>
+</div>
+
+
+<ng-template [ngxPermissionsOnly]="['ADMIN']">
+  <div style="color: red">LAZY I SHOULD not see it only guest</div>
+</ng-template>
+
+<ng-template [ngxPermissionsExcept]="['GUESTTTT']">
+  <div>LAZY I will see it except guestttt</div>
+</ng-template>
+
+<ng-template [ngxPermissionsExcept]="['GUEST']">
+  <div style="color: red">LAZY I Should not see it except admin</div>
+</ng-template>
+
+
+<div> ENd on lazy ISOLATE Module</div>
